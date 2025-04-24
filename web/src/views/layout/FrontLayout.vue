@@ -26,8 +26,8 @@
             >
               <el-menu-item index="/index">首页</el-menu-item>
               <el-menu-item index="/myPet">我的宠物</el-menu-item>
-              <el-menu-item index="/helpMessage">求助信息</el-menu-item>
-              <el-menu-item index="/petDiary">宠物日记</el-menu-item>
+<!--              <el-menu-item index="/helpMessage">求助信息</el-menu-item>-->
+<!--              <el-menu-item index="/petDiary">宠物日记</el-menu-item>-->
               <el-menu-item index="/petStore">查找店铺</el-menu-item>
               <el-menu-item index="/productList">宠物商城</el-menu-item>
               <el-menu-item index="/personalCenter">个人中心</el-menu-item>

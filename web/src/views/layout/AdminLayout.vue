@@ -35,12 +35,12 @@
           <span>普通用户管理</span>
         </el-menu-item>
 
-        <el-menu-item index="/admin/helpMessage"  v-if="currentUser.type==='ADMIN'">
-              <el-icon>
-                  <Help/>
-              </el-icon>
-              <span>求助信息管理</span>
-        </el-menu-item>
+<!--        <el-menu-item index="/admin/helpMessage"  v-if="currentUser.type==='ADMIN'">-->
+<!--              <el-icon>-->
+<!--                  <Help/>-->
+<!--              </el-icon>-->
+<!--             <span>求助信息管理</span>-->
+<!--        </el-menu-item>-->
         <el-sub-menu index="1" v-if="currentUser.type==='ADMIN'">
           <template #title>
             <el-icon>
@@ -62,10 +62,10 @@
             <span>宠物信息</span>
           </el-menu-item>
           <el-menu-item index="/admin/petDiary">
-            <el-icon>
-              <Edit/>
-            </el-icon>
-            <span>宠物日记</span>
+<!--            <el-icon>-->
+<!--              <Edit/>-->
+<!--            </el-icon>-->
+<!--            <span>宠物日记</span>-->
           </el-menu-item>
         </el-sub-menu>
 

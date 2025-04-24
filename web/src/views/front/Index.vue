@@ -1,14 +1,14 @@
 <template>
   <div style="width: 75%;margin: 0 auto">
     <el-row :gutter="20">
-      <el-col :span="16">
+      <el-col :span="24">
         <el-card shadow="hover" style="height: 470px;">
           <template #header>
             <span class="card-header-text">宠物店铺</span>
             <a href="javascript:;" class="card-header-more" @click="router.push('/petStore')">更多</a>
           </template>
           <el-row :gutter="20">
-            <el-col style="cursor: pointer" :span="12" v-for="(item,index) in petStoreList" v-show="index===0" :key="item.id"
+            <el-col style="cursor: pointer" :span="8" v-for="(item,index) in petStoreList" v-show="index===0" :key="item.id"
                     @click="router.push('/petStore?storeName='+item.storeName)">
               <div class="image-container">
                 <img :src="item.storeImg"
@@ -17,11 +17,11 @@
                 <div class="overlay">{{ item.storeName }}</div>
               </div>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="16">
               <el-row :gutter="20">
-                <el-col style="cursor: pointer" :span="12" v-for="(item,index) in petStoreList" v-show="index>0 && index<=4"
+                <el-col style="cursor: pointer" :span="8" v-for="(item,index) in petStoreList" v-show="index>0 && index<=5"
                         :key="item.id" @click="router.push('/petStore?storeName='+item.storeName)">
-                  <div class="image-container" :style="{ marginTop: index < 3 ? '0' : '20px' }">
+                  <div class="image-container" :style="{ marginTop: index < 4 ? '0' : '20px' }">
                     <img :src="item.storeImg"
                          style="height:140px"
                          @click="router.push(item.id)"/>
@@ -32,42 +32,19 @@
             </el-col>
           </el-row>
           <el-row :gutter="20" style="margin-top: 20px">
-            <el-col :span="12" v-for="(item,index) in petStoreList" v-show="index>4 && index<15"
+            <el-col :span="8" v-for="(item,index) in petStoreList" v-show="index>5 && index<15"
                     @click="router.push('/petStore?storeName='+item.storeName)">
-              <div :style="{ marginTop: index < 7 ? '0' : '10px' }" style="width: 100%;">
+              <div :style="{ marginTop: index < 9 ? '0' : '10px' }" style="width: 100%;">
                 <el-text style="cursor: pointer"  line-clamp="1" class="colored-text"> <el-icon><Place /></el-icon> {{ item.storeName }}</el-text>
               </div>
             </el-col>
           </el-row>
         </el-card>
       </el-col>
-      <el-col :span="8">
-        <el-card style="height: 470px;">
-          <template #header>
-            <span>求助信息</span>
-            <a href="javascript:;" class="card-header-more" @click="router.push('/helpMessage')">更多</a>
-          </template>
-          <el-scrollbar height="400px" style="padding-right: 20px">
-            <el-timeline style="max-width: 600px">
-              <el-timeline-item :timestamp="item.createTime" placement="top" v-for="item in  helpMessageList">
-                <el-card @click="router.push('/helpMessageDetails/'+item.id)" style="cursor:pointer">
-                  <el-space direction="vertical" alignment="left">
-                    <el-space>
-                      <el-avatar :src="item.userAvatarUrl" class="user-avatar"></el-avatar>
-                      <h5 class="username">{{ item.username }}</h5>
-                    </el-space>
-                    <div><h4>{{ item.title }}</h4></div>
-                  </el-space>
-                </el-card>
-              </el-timeline-item>
-            </el-timeline>
-          </el-scrollbar>
-        </el-card>
-      </el-col>
     </el-row>
 
     <el-row :gutter="20" style="margin-top: 20px">
-      <el-col :span="16">
+      <el-col :span="24">
         <el-card shadow="hover" style="height: 710px;">
           <template #header>
             <span class="card-header-text">宠物商城</span>
@@ -99,21 +76,6 @@
           </el-row>
         </el-card>
       </el-col>
-      <el-col :span="8">
-        <el-card>
-          <template #header>
-            <span>宠物日记</span>
-            <a href="javascript:;" class="card-header-more" @click="router.push('/petDiary')">更多</a>
-          </template>
-          <el-scrollbar height="610px" style="padding-right: 20px">
-            <div :span="12" v-for="(item,index) in petDiaryList" @click="router.push('/petDiaryDetails/'+item.id)">
-              <div :style="{ marginTop: index <1 ? '0' : '10px' }" style="width: 100%;cursor:pointer">
-                <el-text line-clamp="1" size="large"><el-icon><Document /></el-icon> {{ item.title }}</el-text>
-              </div>
-            </div>
-          </el-scrollbar>
-        </el-card>
-      </el-col>
     </el-row>
   </div>
 </template>
@@ -139,39 +101,6 @@ async function getPetStoreListList() {
     petStoreList.value = res.data.list;
   })
 }
-
-//宠物日记
-const petDiaryList = ref([])
-getPetDiaryList();
-
-async function getPetDiaryList() {
-  let data = {
-    pageNum: 1,
-    pageSize: 20
-  }
-  request.get("/petDiary/page", {
-    params: data
-  }).then(res => {
-    petDiaryList.value = res.data.list;
-  })
-}
-
-//求助信息
-const helpMessageList = ref([])
-getHelpMessageList();
-
-async function getHelpMessageList() {
-  let data = {
-    pageNum: 1,
-    pageSize: 10
-  }
-  request.get("/helpMessage/page", {
-    params: data
-  }).then(res => {
-    helpMessageList.value = res.data.list;
-  })
-}
-
 
 //商品信息
 const productList = ref([])

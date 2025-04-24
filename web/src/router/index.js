@@ -40,17 +40,8 @@ function getRoutes() {
                     name: "front-myPet",
                     component: () =>
                         import ('../views/front/MyPet.vue')
-                }, {
-                    path: "helpMessage",
-                    name: "front-helpMessage",
-                    component: () =>
-                        import ('../views/front/HelpMessage.vue')
-                }, {
-                    path: "petDiary",
-                    name: "front-petDiary",
-                    component: () =>
-                        import ('../views/front/PetDiary.vue')
-                }, {
+                }, 
+                {
                     path: 'personalCenter',
                     name: 'personalCenter',
                     component: () => import('../views/front/PersonalCenter.vue')
@@ -63,16 +54,8 @@ function getRoutes() {
                     path: 'productDetails/:id',
                     name: 'front-productDetails',
                     component: () => import('../views/front/ProductDetails.vue')
-                }, {
-                    path: 'petDiaryDetails/:id',
-                    name: 'front-petDiaryDetails',
-                    component: () => import('../views/front/PetDiaryDetails.vue')
-                }, {
-                    path: 'helpMessageDetails/:id',
-                    name: 'front-helpMessageDetails',
-                    component: () => import('../views/front/HelpMessageDetails.vue')
-                }
-                , {
+                }, 
+                {
                     path: 'petStore',
                     name: 'front-ptStore',
                     component: () => import('../views/front/PetStore.vue')
@@ -134,14 +117,6 @@ function getRoutes() {
                     component: () =>
                         import ('../views/admin/PetManage.vue')
                 },
-
-                {
-                    path: 'petDiary',
-                    name: 'admin-petDiary',
-                    component: () =>
-                        import ('../views/admin/PetDiaryManage.vue')
-                }
-                ,
                 {
                     path: 'petFeed',
                     name: 'admin-petFeed',
@@ -155,14 +130,6 @@ function getRoutes() {
                     component: () =>
                         import ('../views/admin/PetFosterCareManage.vue')
                 },
-                {
-                    path: 'helpMessage',
-                    name: 'admin-helpMessage',
-                    component: () =>
-                        import ('../views/admin/HelpMessageManage.vue')
-                }
-
-                ,
                 {
                     path: 'product',
                     name: 'admin-product',
